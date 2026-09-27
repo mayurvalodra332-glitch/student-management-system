@@ -1,0 +1,98 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Edit Student</title>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f4f6f9;
+            }
+
+            .header {
+                background: #1f3c88;
+                color: white;
+                padding: 25px;
+                text-align: center;
+            }
+
+            .container {
+                width: 70%;
+                margin: 40px auto;
+            }
+
+            .box {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px #ccc;
+            }
+
+            input {
+                width: 90%;
+                padding: 12px;
+                margin: 8px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                background: #1f3c88;
+                color: white;
+                border: none;
+                padding: 12px 25px;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
+            .back {
+                margin-left: 10px;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="header">
+            <h1>✏️ Edit Student</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="box">
+
+                <form method="POST" action="/update_student/{{ student['id'] }}">
+
+                    <input type="text" name="name" value="{{ student['name'] }}" required>
+
+                    <input type="text" name="roll" value="{{ student['roll'] }}" required>
+
+                    <input type="text" name="course" value="{{ student['course'] }}" required>
+
+                    <input type="text" name="semester" value="{{ student['semester'] }}" required>
+
+                    <br><br>
+
+                    <button type="submit">
+                        Update Student
+                    </button>
+
+                    <a class="back" href="/">
+                        Back
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </body>
+
+    </html>
