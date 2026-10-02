@@ -16,21 +16,52 @@
             background: #f4f6f9;
         }
 
+        /* HEADER */
+
         .header {
             background: #1f3c88;
             color: white;
-            padding: 25px;
-            text-align: center;
+            padding: 22px 5%;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header h1 {
             margin: 0;
+            font-size: 28px;
         }
+
+        .header p {
+            margin: 8px 0 0;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            opacity: 0.85;
+        }
+
+
+        /* CONTAINER */
 
         .container {
             width: 90%;
             margin: 30px auto;
         }
+
+
+        /* DASHBOARD */
 
         .dashboard {
             display: flex;
@@ -57,6 +88,9 @@
             color: #555;
         }
 
+
+        /* SECTIONS */
+
         .section {
             background: white;
             padding: 25px;
@@ -69,6 +103,9 @@
             color: #1f3c88;
         }
 
+
+        /* INPUTS */
+
         input {
             padding: 12px;
             margin: 6px;
@@ -76,6 +113,9 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+
+        /* BUTTON */
 
         button {
             background: #1f3c88;
@@ -90,10 +130,18 @@
             opacity: 0.85;
         }
 
+
+        /* CLEAR */
+
         .clear-btn {
             margin-left: 10px;
             text-decoration: none;
+            color: #1f3c88;
+            font-weight: bold;
         }
+
+
+        /* TABLE */
 
         table {
             width: 100%;
@@ -117,6 +165,9 @@
             background: #f4f6f9;
         }
 
+
+        /* EDIT BUTTON */
+
         .edit-btn {
             background: #28a745;
             text-decoration: none;
@@ -124,6 +175,9 @@
             padding: 8px 12px;
             border-radius: 5px;
         }
+
+
+        /* DELETE BUTTON */
 
         .delete-btn {
             background: #dc3545;
@@ -134,10 +188,43 @@
             margin-left: 5px;
         }
 
+
+        /* NO DATA */
+
         .no-data {
             text-align: center;
             padding: 20px;
             color: #666;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            input {
+                width: 90%;
+            }
+
         }
     </style>
 
@@ -147,11 +234,28 @@
 <body>
 
 
+    <!-- HEADER -->
+
     <div class="header">
 
-        <h1>🎓 Student Management System</h1>
+        <div class="header-top">
 
-        <p>Manage Student Records Easily</p>
+            <div>
+
+                <h1>🎓 Student Management System</h1>
+
+                <p>
+                    Welcome, {{ session["user_name"] }} 👋
+                </p>
+
+            </div>
+
+
+            <a class="logout-btn" href="/logout">
+                🚪 Logout
+            </a>
+
+        </div>
 
     </div>
 
@@ -193,7 +297,7 @@
                 <br><br>
 
                 <button type="submit">
-                    Add Student
+                    ➕ Add Student
                 </button>
 
             </form>
